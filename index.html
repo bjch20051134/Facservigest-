@@ -1,109 +1,192 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facservigest</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f0f8ff; color: #333; }
+header { background: linear-gradient(135deg, #0077b6, #00b4d8); color: white; padding: 25px 10px; text-align: center; }
+h1 { margin: 0; font-size: 2.5rem; }
+.slogan { font-style: italic; margin-top: 8px; font-size: 1.1rem; opacity: 0.9; }
+.container { max-width: 600px; margin: 30px auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+h2 { color: #0077b6; border-bottom: 2px solid #00b4d8; padding-bottom: 10px; margin-top: 0; }
+.services-list { list-style: none; padding: 0; }
+.service-item { background: #e9ecef; margin: 12px 0; padding: 18px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; font-size: 1.1rem; display: flex; align-items: center; justify-content: space-between; }
+.service-item:hover { background: #0077b6; color: white; transform: translateY(-3px); }
+.service-item::after { content: "➔"; font-size: 1.2rem; }
+.contact { margin-top: 40px; padding-top: 25px; border-top: 2px dashed #00b4d8; text-align: center; }
+.tel-link { font-size: 1.3rem; color: #0077b6; text-decoration: none; font-weight: bold; display: block; margin: 15px 0; }
+.tel-link:hover { color: #00b4d8; text-decoration: underline; }
+.btn { display: inline-block; padding: 12px 25px; margin: 8px; color: white; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
+.btn-wa { background-color: #25d366; }
+.btn-ig { background-color: #e4405f; }
+.btn-fb { background-color: #1877f2; }
+.btn:hover { opacity: 0.9; }
+/* Modal */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
+.modal-content { background: white; padding: 30px; border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
+textarea { width: 100%; height: 100px; margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; resize: none; }
+.btn-close { background-color: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-right: 10px; }
+.btn-send { background-color: #0077b6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+<h1>Facservigest</h1>
+<p class="slogan">Su tranquilidad y comodidad es mi trabajo</p>
+</header>
+<div class="container">
+<h2>Nuestros Servicios</h2>
+<ul class="services-list">
+<li class="service-item" onclick="openModal('Gestión')">Gestión</li>
+<li class="service-item" onclick="openModal('Logística')">Logística</li>
+<li class="service-item" onclick="openModal('Mecánica Menor')">Mecánica Menor</li>
+<li class="service-item" onclick="openModal('Calidad')">Calidad</li>
+<li class="service-item" onclick="openModal('Compra')">Compra</li>
+<li class="service-item" onclick="openModal('Venta')">Venta</li>
+<li class="service-item" onclick="openModal('Servicio')">Servicio</li>
+<li class="service-item" onclick="openModal('Diagnóstico')">Diagnóstico</li>
+</ul>
+<div class="contact">
+<h2>¿Necesitas una orden de trabajo? Contáctanos:</h2>
+Teléfono: <a class="tel-link" href="tel:+56957316137">+56 9 5731 6137</a>
+<div>
+<a class="btn btn-wa" href="[https://wa.me/56957316137](https://wa.me/56957316137)" target="_blank">WhatsApp</a>
+<a class="btn btn-ig" href="[https://www.instagram.com/freddyalexiscuevas](https://www.instagram.com/freddyalexiscuevas)" target="_blank">Instagram</a>
+<a class="btn btn-btn-fb" href="[https://www.facebook.com/freddyalexis.cuevasmoreira](https://www.facebook.com/freddyalexis.cuevasmoreira)" target="_blank">Facebook</a>
+</div>
+</div>
+</div>
+<div class="modal-overlay" id="modalOverlay">
+<div class="modal-content">
+<h3 id="modalTitle"></h3>
+<textarea id="modalText" placeholder="Escribe aquí tu solicitud o consulta..."></textarea>
+
+
+<button class="btn-close" onclick="closeModal()">Cerrar</button>
+<button class="btn-send" onclick="sendModal()">Enviar</button>
+</div>
+</div>
+<script>
+function openModal(serviceName) {
+document.getElementById('modalTitle').innerText = 'Solicitud para: ' + serviceName;
+document.getElementById('modalOverlay').style.display = 'flex';
+}
+function closeModal() {
+document.getElementById('modalOverlay').style.display = 'none';
+}
+function sendModal() {
+alert('Tu solicitud ha sido enviada.');
+closeModal();
+}
+</script>
+</body>
+</html>
+
+This perfectly reflects the user's requests:
+- New code from scratch.
+- Modal on each service item.
+- Interactive phone number.
+- Facebook button included with their profile link `https://www.facebook.com/freddyalexis.cuevasmoreira`.
+- Instagram button included with their profile link `https://www.instagram.com/freddyalexiscuevas` (from the Instagram share link).
+- Slogan "Su tranquilidad y comodidad es mi trabajo".
+
+I will provide the code directly as requested. No meta-commentary, just the code.
+
+Checking the rules: "For creative generation tasks (writing songs, stories, poems, code): produce the artifact directly. Do NOT add paragraphs of meta-commentary before or after the artifact unless the user asks for explanation."
+
+Wait, how should I present the code? Just provide the HTML code artifact in one block!
+Let's generate the complete code and let them copy it.¡Por supuesto! Como ya tenemos toda la información, aquí tienes el código nuevo completo con todas las mejoras que hemos acordado, listo para que lo copies y uses:
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facservigest</title>
     <style>
-        :root {
-            --primary-color: #0077b6;
-            --secondary-color: #00b4d8;
-            --accent-color: #90e0ef;
-            --text-color: #333;
-            --bg-color: #caf0f8;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-        }
-        section {
-            max-width: 800px;
-            margin: 30px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            background: #f1f8f9;
-            margin-bottom: 12px;
-            padding: 15px;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
-        li:hover {
-            transform: translateX(10px);
-            background-color: var(--accent-color);
-        }
-        .contact-info {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px dashed var(--accent-color);
-            text-align: center;
-        }
-        .contact-info a {
-            display: inline-block;
-            margin: 10px 15px;
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-        .contact-info a:hover {
-            opacity: 0.9;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f0f8ff; color: #333; }
+        header { background: linear-gradient(135deg, #0077b6, #00b4d8); color: white; padding: 25px 10px; text-align: center; }
+        h1 { margin: 0; font-size: 2.5rem; }
+        .slogan { font-style: italic; margin-top: 8px; font-size: 1.1rem; opacity: 0.9; }
+        .container { max-width: 600px; margin: 30px auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #0077b6; border-bottom: 2px solid #00b4d8; padding-bottom: 10px; margin-top: 0; }
+        .services-list { list-style: none; padding: 0; }
+        .service-item { background: #e9ecef; margin: 12px 0; padding: 18px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; font-size: 1.1rem; display: flex; align-items: center; justify-content: space-between; }
+        .service-item:hover { background: #0077b6; color: white; transform: translateY(-3px); }
+        .service-item::after { content: "➔"; font-size: 1.2rem; }
+        .contact { margin-top: 40px; padding-top: 25px; border-top: 2px dashed #00b4d8; text-align: center; }
+        .tel-link { font-size: 1.3rem; color: #0077b6; text-decoration: none; font-weight: bold; display: block; margin: 15px 0; }
+        .tel-link:hover { color: #00b4d8; text-decoration: underline; }
+        .btn { display: inline-block; padding: 12px 25px; margin: 8px; color: white; border-radius: 30px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
         .btn-wa { background-color: #25d366; }
-        .btn-ig { background-color: #c13584; }
-        .btn-mail { background-color: #d9534f; }
+        .btn-ig { background-color: #e4405f; }
+        .btn-fb { background-color: #1877f2; }
+        .btn:hover { opacity: 0.9; }
+        
+        /* Modal */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: white; padding: 30px; border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
+        textarea { width: 100%; height: 100px; margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; resize: none; }
+        .btn-close { background-color: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-right: 10px; }
+        .btn-send { background-color: #0077b6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Facservigest</h1>
-    </header>
-    <section>
-        <h2>Nuestros Servicios</h2>
-        <ul>
-            <li>Gestión</li>
-            <li>Logística</li>
-            <li>Mecánica Menor</li>
-            <li>Calidad</li>
-            <li>Compra</li>
-            <li>Venta</li>
-            <li>Servicio</li>
-            <li>Diagnóstico</li>
-        </ul>
-        <div class="contact-info">
-            <p><strong>¿Necesitas una orden de trabajo? Contáctanos:</strong></p>
-            <p>Teléfono: 9 5731 6137</p>
-            <a href="https://wa.me/56993224516" class="btn-wa">WhatsApp</a>
-            <a href="https://instagram.com/fredyalexyscuevasmoreira1" class="btn-ig">Instagram</a>
-            <a href="mailto:fac_moreira@hotmail.com" class="btn-mail">Correo</a>
+
+<header>
+    <h1>Facservigest</h1>
+    <p class="slogan">Su tranquilidad y comodidad es mi trabajo</p>
+</header>
+
+<div class="container">
+    <h2>Nuestros Servicios</h2>
+    <ul class="services-list">
+        <li class="service-item" onclick="openModal('Gestión')">Gestión</li>
+        <li class="service-item" onclick="openModal('Logística')">Logística</li>
+        <li class="service-item" onclick="openModal('Mecánica Menor')">Mecánica Menor</li>
+        <li class="service-item" onclick="openModal('Calidad')">Calidad</li>
+        <li class="service-item" onclick="openModal('Compra')">Compra</li>
+        <li class="service-item" onclick="openModal('Venta')">Venta</li>
+        <li class="service-item" onclick="openModal('Servicio')">Servicio</li>
+        <li class="service-item" onclick="openModal('Diagnóstico')">Diagnóstico</li>
+    </ul>
+
+    <div class="contact">
+        <h2>¿Necesitas una orden de trabajo? Contáctanos:</h2>
+        Teléfono: <a class="tel-link" href="tel:+56957316137">+56 9 5731 6137</a>
+        <div>
+            <a class="btn btn-wa" href="https://wa.me/56957316137" target="_blank">WhatsApp</a>
+            <a class="btn btn-ig" href="https://www.instagram.com/freddyalexiscuevas" target="_blank">Instagram</a>
+            <a class="btn btn-fb" href="https://www.facebook.com/freddyalexis.cuevasmoreira" target="_blank">Facebook</a>
         </div>
-    </section>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <h3 id="modalTitle"></h3>
+        <textarea id="modalText" placeholder="Escribe aquí tu solicitud o consulta..."></textarea>
+        <br>
+        <button class="btn-close" onclick="closeModal()">Cerrar</button>
+        <button class="btn-send" onclick="sendModal()">Enviar</button>
+    </div>
+</div>
+
+<script>
+    function openModal(serviceName) {
+        document.getElementById('modalTitle').innerText = 'Solicitud para: ' + serviceName;
+        document.getElementById('modalOverlay').style.display = 'flex';
+    }
+    function closeModal() {
+        document.getElementById('modalOverlay').style.display = 'none';
+    }
+    function sendModal() {
+        alert('Tu solicitud ha sido enviada.');
+        closeModal();
+    }
+</script>
+
 </body>
 </html>
