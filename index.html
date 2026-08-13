@@ -1,106 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facservigest</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
-        .logo {
-            font-weight: bold;
-            font-size: 24px;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #007bff;
-        }
-        .hero {
-            padding: 60px 20px;
-            text-align: center;
-            background: url('bg-image.jpg') center/cover;
-            color: #fff;
-        }
-        .services {
-            padding: 40px 20px;
-            background-color: #fff;
-        }
-        .services h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .services ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .services li {
-            margin: 10px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-        }
-        footer {
-            padding: 20px;
-            text-align: center;
-            background-color: #333;
-            color: #fff;
-        }
-    </style>
+ <meta charset="UTF-8">
+ <title>Facservigest</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style>
+ body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+ header { background-color: #0073e6; color: white; padding: 20px; text-align: center; }
+ .tagline { font-style: italic; background-color: #f4f4f4; padding: 10px; text-align: center; }
+ .container { max-width: 600px; margin: 20px auto; padding: 0 20px; }
+ h2 { color: #0073e6; }
+ ul { list-style: none; padding: 0; }
+ li { background: #fff; margin-bottom: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+ li::after { content: '→'; color: #0073e6; font-weight: bold; }
+ .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
+ .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; border-radius: 8px; }
+ .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+ .close:hover, .close:focus { color: black; text-decoration: none; cursor: pointer; }
+ footer { margin-top: 40px; padding: 20px; background-color: #f1f1f1; text-align: center; }
+ .social-icons a { margin: 0 10px; color: #0073e6; text-decoration: none; font-size: 16px; }
+ </style>
 </head>
 <body>
-    <header>
-        <div class="logo">Facservigest</div>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Servicios</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Contacto</a>
-            <a href="#">Blog</a>
-            <button class="btn-cita">Solicitar Cita</button>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <h1>Facservigest: Soluciones Integrales para su Hogar y Empresa</h1>
-            <p>Soluciones Personalizadas, Confianza y Eficiencia en cada Servicio.</p>
-        </section>
-        <section class="services">
-            <h2>Nuestros Servicios</h2>
-            <ul>
-                <li>Gestión</li>
-                <li>Logística</li>
-                <li>Mecánica Menor</li>
-                <li>Calidad</li>
-                <li>Compra</li>
-                <li>Diagnóstico</li>
-                <li>Servicio</li>
-                <li>Solicitudes Especiales</li>
-            </ul>
-        </section>
-        <section class="contact-prompt">
-            <p>¿No sabes qué necesitas o cómo gestionarlo? ¡Contáctanos! Conversa con nosotros y buscaremos la mejor forma de ayudarte.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Facservigest - Parral, Maule</p>
-    </footer>
+
+ <header>
+ <h1>Facservigest</h1>
+ </header>
+
+ <div class="tagline">
+ Su tranquilidad y comodidad es mi trabajo
+ </div>
+
+ <div class="container">
+ <h2>Nuestros Servicios</h2>
+ <ul>
+ <li onclick="openService('Gestión')">Gestión</li>
+ <li onclick="openService('Logística')">Logística</li>
+ <li onclick="openService('Mecánica Menor')">Mecánica Menor</li>
+ <li onclick="openService('Calidad')">Calidad</li>
+ <li onclick="openService('Compra')">Compra</li>
+ <li onclick="openService('Servicio')">Servicio</li>
+ <li onclick="openService('Diagnóstico')">Diagnóstico</li>
+ <li onclick="openService('Solicitudes Especiales')">Solicitudes Especiales</li>
+ </ul>
+ </div>
+
+ <div id="serviceModal" class="modal">
+ <div class="modal-content">
+ <span class="close" onclick="closeModal()">&times;</span>
+ <h2 id="modalTitle"></h2>
+ <form action="https://formspree.io/f/mkjwbqzz" method="POST">
+ <label>Nombre: <input type="text" name="nombre" required></label><br><br>
+ <label>Descripción de su necesidad: <textarea name="necesidad" required></textarea></label><br><br>
+ <label>Número de Teléfono: <input type="tel" name="telefono" required></label><br><br>
+ <button type="submit">Enviar Solicitud</button>
+ </form>
+ </div>
+ </div>
+
+ <footer>
+ <div class="social-icons">
+ <a href="https://www.facebook.com/share/IGLM33c2sS/">Facebook</a>
+ <a href="https://wa.me/56957316137">WhatsApp</a>
+ <a href="https://www.instagram.com/freddyalexiscuevas">Instagram</a>
+ <a href="mailto:fac_moreira@hotmail.com">Correo</a>
+ <a href="tel:+56957316137">Teléfono</a>
+ </div>
+ <p>&copy; 2026 Facservigest - Parral, Maule</p>
+ </footer>
+
+ <script>
+ function openService(serviceName) {
+ document.getElementById('modalTitle').innerText = serviceName;
+ document.getElementById('serviceModal').style.display = "block";
+ }
+ function closeModal() {
+ document.getElementById('serviceModal').style.display = "none";
+ }
+ window.onclick = function(event) {
+ var modal = document.getElementById('serviceModal');
+ if (event.target == modal) { modal.style.display = "none"; }
+ }
+ </script>
 </body>
 </html>
