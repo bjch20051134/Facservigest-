@@ -1,115 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sistema de Calificación</title>
-<style>
-  :root {
-    --primary-color: #8B0000;
-    --secondary-color: #FFD700;
-    --text-color: #333;
-    --bg-color: #f9f9f9;
-  }
-  body {
-    font-family: Arial, sans-serif;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    margin: 20px;
-  }
-  .container {
-    max-width: 500px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  }
-  h2 {
-    color: var(--primary-color);
-  }
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
-  input[type="text"], select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  button:hover {
-    background-color: #a52a2a;
-  }
-  .review-card {
-    background: #fff3cd;
-    border-left: 4px solid var(--secondary-color);
-    padding: 10px;
-    margin-top: 15px;
-    border-radius: 0 4px 4px 0;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facservigest</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .hero {
+            padding: 60px 20px;
+            text-align: center;
+            background: url('bg-image.jpg') center/cover;
+            color: #fff;
+        }
+        .services {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+        .services h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .services ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .services li {
+            margin: 10px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+        }
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-
-<div class="container">
-  <h2>Deja tu Reseña</h2>
-  <form id="reviewForm">
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="rating">Calificación:</label>
-    <select id="rating" name="rating" required>
-      <option value="5">5 - Excelente</option>
-      <option value="4">4 - Muy Bueno</option>
-      <option value="3">3 - Bueno</option>
-      <option value="2">2 - Regular</option>
-      <option value="1">1 - Malo</option>
-    </select>
-
-    <label for="comment">Comentario:</label>
-    <textarea id="comment" name="comment" rows="4" required></textarea>
-
-    <button type="submit">Enviar Reseña</button>
-  </form>
-</div>
-
-<div class="container" style="margin-top: 20px;">
-  <h2>Reseñas Recientes</h2>
-  <div id="reviewsList"></div>
-</div>
-
-<script>
-document.getElementById('reviewForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const rating = document.getElementById('rating').value;
-    const comment = document.getElementById('comment').value;
-
-    const reviewCard = document.createElement('div');
-    reviewCard.className = 'review-card';
-    reviewCard.innerHTML = `
-        <strong>${name}</strong> (${rating} estrellas)
-        <p>${comment}</p>
-    `;
-
-    document.getElementById('reviewsList').prepend(reviewCard);
-    document.getElementById('reviewForm').reset();
-});
-</script>
-  
+    <header>
+        <div class="logo">Facservigest</div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Contacto</a>
+            <a href="#">Blog</a>
+            <button class="btn-cita">Solicitar Cita</button>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Facservigest: Soluciones Integrales para su Hogar y Empresa</h1>
+            <p>Soluciones Personalizadas, Confianza y Eficiencia en cada Servicio.</p>
+        </section>
+        <section class="services">
+            <h2>Nuestros Servicios</h2>
+            <ul>
+                <li>Gestión</li>
+                <li>Logística</li>
+                <li>Mecánica Menor</li>
+                <li>Calidad</li>
+                <li>Compra</li>
+                <li>Diagnóstico</li>
+                <li>Servicio</li>
+                <li>Solicitudes Especiales</li>
+            </ul>
+        </section>
+        <section class="contact-prompt">
+            <p>¿No sabes qué necesitas o cómo gestionarlo? ¡Contáctanos! Conversa con nosotros y buscaremos la mejor forma de ayudarte.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Facservigest - Parral, Maule</p>
+    </footer>
 </body>
 </html>
